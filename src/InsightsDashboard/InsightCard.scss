@@ -1,18 +1,24 @@
 .tempest-card {
+  background-color: white;
   display: grid;
-  grid-template-columns: 4rem 2rem 2rem 6rem;
-  grid-template-rows: 4rem 6rem;
+  grid-template-columns: 6rem auto auto auto;
   grid-template-areas: 
     "avatar card-header card-header card-header"
     "graph graph graph aside";
+  border: .4rem solid black;
+  border-radius: .4rem;
+  padding: .6rem;
   
   &__avatar {
     grid-area: avatar;
     border-radius: 100%;
+    width: 4rem;
+    margin-left: 1rem;
   }
 
   &__heading {
     &-container {
+      padding-top: .4rem;
       grid-area: card-header;
     }
 
@@ -49,9 +55,13 @@
       }
     }
 
-    &__sub-text{
+    &__sub-text {
       font-size: small;
       color: gray;
+    }
+
+    &__chart {
+      grid-area: graph;
     }
   }
 }

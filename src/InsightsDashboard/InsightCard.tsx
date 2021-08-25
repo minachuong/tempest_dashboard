@@ -11,12 +11,15 @@ export const InsightCard = (props: InsightCardProps) => {
         <h3 className="tempest-card__heading">{insight.user.first_name} {insight.user.last_name}</h3>
         <h4 className="tempest-card__heading--small">{insight.user.occupation}</h4>
       </header>
-      <div className="tempest-card__aside">
+      <aside className="tempest-card__aside">
         <p className="tempest-card__aside__metric--orange">{insight.total_impressions}</p>
         <p className="tempest-card__aside__sub-text">impressions</p>
         <p className="tempest-card__aside__metric--blue">{insight.total_conversions}</p>
         <p className="tempest-card__aside__sub-text">conversions</p>
         <p className="tempest-card__aside__metric--green--large">{insight.total_revenue}</p>
+      </aside>
+      <div className="tempest-card__chart">
+        {props.children}
       </div>
     </article>
   );
@@ -24,4 +27,5 @@ export const InsightCard = (props: InsightCardProps) => {
 
 export interface InsightCardProps {
   insight: UserInsight;
+  children: JSX.Element;
 }

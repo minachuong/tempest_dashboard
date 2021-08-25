@@ -10,7 +10,9 @@ export const InsightsDashboard = (props: InsightsDashboardProps) => {
       {
         insights.map(insight => {
           return(
-            <InsightCard insight={insight}/>
+            <InsightCard insight={insight}>
+              <div>hello</div>
+            </InsightCard>
           );
         })
       }

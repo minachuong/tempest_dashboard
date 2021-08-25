@@ -1,0 +1,57 @@
+.tempest-card {
+  display: grid;
+  grid-template-columns: 4rem 2rem 2rem 6rem;
+  grid-template-rows: 4rem 6rem;
+  grid-template-areas: 
+    "avatar card-header card-header card-header"
+    "graph graph graph aside";
+  
+  &__avatar {
+    grid-area: avatar;
+    border-radius: 100%;
+  }
+
+  &__heading {
+    &-container {
+      grid-area: card-header;
+    }
+
+    &--small {
+      font-size: small;
+      color: gray;
+    }
+  }
+
+  &__aside {
+    text-align: right;
+    grid-area: aside;
+
+    &__metric {
+      font-weight: bold;
+
+      &--orange {
+        @extend .tempest-card__aside__metric;
+        color: orange;
+      }
+
+      &--blue {
+        @extend .tempest-card__aside__metric;
+        color: blue;
+      }
+
+      &--green {
+        @extend .tempest-card__aside__metric;
+        color: green;
+        &--large {
+          @extend .tempest-card__aside__metric--green;
+          font-size: large;
+        }
+      }
+    }
+
+    &__sub-text{
+      font-size: small;
+      color: gray;
+    }
+  }
+}

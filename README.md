@@ -1,5 +1,8 @@
 # Tempest Insights Dashboard
 
+Please visit [https://insights-dashboard-tempest.netlify.app/](https://insights-dashboard-tempest.netlify.app/) for live demo.
+
+
 ## Dependencies
 - [Node.js](https://nodejs.org/en/)
 - [yarn.js](https://yarnpkg.com/getting-started/install)

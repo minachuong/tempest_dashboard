@@ -3,6 +3,14 @@
 ## Dependencies
 - [Node.js](https://nodejs.org/en/)
 - [yarn.js](https://yarnpkg.com/getting-started/install)
+- This app makes HTTP requests to [Tempest Dashboard API](https://github.com/minachuong/tempest_dashboard_api)
+
+## Set Up
+
+When running both apps locally, serve Tempest Dashboard API first as it will run on port 3000, then start this app so that it serves on the next available port.
+
+## Deployment
+ [![Netlify Status](https://api.netlify.com/api/v1/badges/489bf3a1-45af-40ca-b56a-53ad003a1c12/deploy-status)](https://app.netlify.com/sites/elastic-mcnulty-02ecdd/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

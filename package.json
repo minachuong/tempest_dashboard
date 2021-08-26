@@ -15,8 +15,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "env-cmd -f .env.local react-scripts start",
-    "start:prod": "env-cmd -f .env.prod react-scripts start",
+    "start": "react-scripts start",
     "build": "env-cmd -f .env.local react-scripts build",
     "build:prod": "env-cmd -f .env.prod react-scripts build",
     "test": "react-scripts test",

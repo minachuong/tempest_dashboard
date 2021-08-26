@@ -1,6 +1,6 @@
 import { Conversion } from "./useGetInsights";
 import { LineChart, Line, ResponsiveContainer } from "recharts";
-import "./DailyConversionsChart.scss";
+import "./DailyConversionsChart.css";
 
 export const DailyConversionsChart = (props: DailyConversionsChartProps) => {
   const { conversions } = props;

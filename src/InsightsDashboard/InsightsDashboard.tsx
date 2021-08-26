@@ -1,6 +1,6 @@
 import { InsightCard } from "./InsightCard";
 import { UserInsight } from "./useGetInsights";
-import "./InsightsDashboard.scss";
+import "./InsightsDashboard.css";
 import { DailyConversionsChart } from "./DailyConversionsChart";
 
 export const InsightsDashboard = (props: InsightsDashboardProps) => {

@@ -1,4 +1,4 @@
-import './App.scss';
+import './App.css';
 import { InsightsDashboard } from './InsightsDashboard/InsightsDashboard';
 import { useGetInsights } from './InsightsDashboard/useGetInsights';
 

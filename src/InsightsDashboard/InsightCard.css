@@ -1,0 +1,59 @@
+.tempest-card {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 6rem auto 6rem;
+  grid-template-areas: 
+    "avatar card-header card-header"
+    "graph graph aside";
+  border: .4rem solid black;
+  border-radius: .4rem;
+  padding: .6rem;
+}
+
+.tempest-card__avatar {
+  grid-area: avatar;
+  border-radius: 100%;
+  width: 4rem;
+  margin-left: 1rem;
+}
+
+.tempest-card__heading-container {
+  padding-top: .4rem;
+  grid-area: card-header;
+}
+
+.tempest-card__heading--small {
+  font-size: small;
+  color: #808080;
+}
+
+.tempest-card__aside {
+  text-align: right;
+  grid-area: aside;
+}
+
+.tempest-card__aside__metric--orange {
+  font-weight: bold;
+  color: #e88936;
+}
+
+.tempest-card__aside__metric--blue {
+  font-weight: bold;
+  color: #3d8cc0;
+}
+
+.tempest-card__aside__metric--green--large {
+  font-weight: bold;
+  color: #27ae60;
+  font-size: large;
+}
+
+.tempest-card__aside__metric__sub-text {
+  font-size: small;
+  color: #808080;
+  padding-bottom: .24rem;
+}
+
+.tempest-card__chart {
+  grid-area: graph;
+}

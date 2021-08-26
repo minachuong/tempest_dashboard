@@ -1,5 +1,5 @@
 import { UserInsight } from "./useGetInsights";
-import "./InsightCard.scss"
+import "./InsightCard.css"
 
 export const InsightCard = (props: InsightCardProps) => {
   const { insight } = props;

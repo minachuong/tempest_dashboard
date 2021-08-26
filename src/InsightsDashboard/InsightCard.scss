@@ -1,5 +1,7 @@
+@import "../styles/colors";
+
 .tempest-card {
-  background-color: white;
+  background-color: $white;
   display: grid;
   grid-template-columns: 6rem auto 6rem;
   grid-template-areas: 
@@ -24,7 +26,7 @@
 
     &--small {
       font-size: small;
-      color: gray;
+      color: $grey;
     }
   }
 
@@ -37,17 +39,17 @@
 
       &--orange {
         @extend .tempest-card__aside__metric;
-        color: #e88936;
+        color: $metric-orange;
       }
 
       &--blue {
         @extend .tempest-card__aside__metric;
-        color: #3d8cc0;
+        color: $metric-blue;
       }
 
       &--green {
         @extend .tempest-card__aside__metric;
-        color: #27ae60;
+        color: $metric-green;
         &--large {
           @extend .tempest-card__aside__metric--green;
           font-size: large;
@@ -57,7 +59,8 @@
 
     &__sub-text {
       font-size: small;
-      color: gray;
+      color: $grey;
+      padding-bottom: .24rem;
     }
   }
 

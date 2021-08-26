@@ -15,9 +15,11 @@ export const useGetInsights = (): [UserInsight[], boolean, any] => {
     });
     setUserInsights(userInsights);
   }
+
+  const dashboardApiUrl = process.env.REACT_APP_DASHBOARD_API_URL;
   
   useEffect(() => {
-    fetch('http://localhost:3000/insights/summaries')
+    fetch(`${dashboardApiUrl}/insights/summaries`)
       .then((response) => {
         return response.json();
       })
@@ -29,10 +31,10 @@ export const useGetInsights = (): [UserInsight[], boolean, any] => {
       }).finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [dashboardApiUrl]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/insights/dailyconversions')
+    fetch(`${dashboardApiUrl}/insights/dailyconversions`)
       .then((response) => {
         return response.json();
       })
@@ -45,7 +47,7 @@ export const useGetInsights = (): [UserInsight[], boolean, any] => {
       }).finally(() => {
         setIsLoading(false);
       });
-  }, [insightSummaries]);
+  }, [insightSummaries, dashboardApiUrl]);
 
   return [userInsights, isLoading, error];
 }

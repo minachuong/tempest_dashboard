@@ -47,7 +47,7 @@ export const useGetInsights = (): [UserInsight[], boolean, any] => {
       }).finally(() => {
         setIsLoading(false);
       });
-  }, [insightSummaries, dashboardApiUrl]);
+  });
 
   return [userInsights, isLoading, error];
 }

@@ -4,6 +4,8 @@ import "./DailyConversionsChart.css";
 
 export const DailyConversionsChart = (props: DailyConversionsChartProps) => {
   const { conversions } = props;
+  let dateStart, dateEnd;
+
   const mapConversionsToChartData = () => {
     return conversions.map(conversion => {
       return {
@@ -20,8 +22,10 @@ export const DailyConversionsChart = (props: DailyConversionsChartProps) => {
     return `${date.getUTCMonth() + 1}/${date.getUTCDate()}`;
   }
 
-  const dateStart = formatDate(conversions[0].date);
-  const dateEnd = formatDate(conversions[conversions.length - 1].date);
+  if (conversions.length) {
+    dateStart = formatDate(conversions[0].date);
+    dateEnd = formatDate(conversions[conversions.length - 1].date);
+  }
 
   return(
     <>
@@ -30,7 +34,10 @@ export const DailyConversionsChart = (props: DailyConversionsChartProps) => {
           <Line dataKey="total" stroke="#000" dot={false}/>
         </LineChart>
       </ResponsiveContainer>
-      <p className="chart__title">Conversions {dateStart} - {dateEnd}</p>
+      { conversions.length
+          ? <p className="chart__title">Conversions {dateStart} - {dateEnd}</p>
+          : "..."
+      }
     </>
   );
 }

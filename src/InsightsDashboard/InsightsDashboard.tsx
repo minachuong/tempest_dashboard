@@ -1,6 +1,7 @@
 import { InsightCard } from "./InsightCard";
 import { UserInsight } from "./useGetInsights";
 import "./InsightsDashboard.scss";
+import { DailyConversionsChart } from "./DailyConversionsChart";
 
 export const InsightsDashboard = (props: InsightsDashboardProps) => {
   const {insights} = props;
@@ -10,8 +11,8 @@ export const InsightsDashboard = (props: InsightsDashboardProps) => {
       {
         insights.map(insight => {
           return(
-            <InsightCard insight={insight}>
-              <div>hello</div>
+            <InsightCard insight={insight} key={insight.user.id}>
+              <DailyConversionsChart conversions={insight.conversions}/>
             </InsightCard>
           );
         })

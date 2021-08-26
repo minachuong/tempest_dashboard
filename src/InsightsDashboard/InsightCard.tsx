@@ -6,7 +6,7 @@ export const InsightCard = (props: InsightCardProps) => {
 
   return(
     <article className="tempest-card">
-      <img src={insight.user.avatar_url} className="tempest-card__avatar"/>
+      <img src={insight.user.avatar_url} className="tempest-card__avatar" alt="user profile"/>
       <header className="tempest-card__heading-container">
         <h3 className="tempest-card__heading">{insight.user.first_name} {insight.user.last_name}</h3>
         <h4 className="tempest-card__heading--small">{insight.user.occupation}</h4>

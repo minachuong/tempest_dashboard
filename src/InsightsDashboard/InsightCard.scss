@@ -37,17 +37,17 @@
 
       &--orange {
         @extend .tempest-card__aside__metric;
-        color: orange;
+        color: #e88936;
       }
 
       &--blue {
         @extend .tempest-card__aside__metric;
-        color: blue;
+        color: #3d8cc0;
       }
 
       &--green {
         @extend .tempest-card__aside__metric;
-        color: green;
+        color: #27ae60;
         &--large {
           @extend .tempest-card__aside__metric--green;
           font-size: large;

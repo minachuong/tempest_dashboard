@@ -1,53 +1,52 @@
 import {useState, useEffect} from "react";
 
 export const useGetInsights = (): [UserInsight[], boolean, any] => {
-  const [insightSummaries, setInsightSummaries] = useState<InsightSummary[]>([]);
-  const [userConversions, setUserConversions] = useState<UserConversion[]>([]);
   const [userInsights, setUserInsights] = useState<UserInsight[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<any>(undefined);
 
-  const mapDataToUserInsights = () => {
+  const getDailyConversions = async (): Promise<any> => {
+    try {
+      const response = await fetch(`${dashboardApiUrl}/insights/dailyconversions`);
+      return await response.json();
+
+    } catch(e) {
+      setError(e);
+    }
+  }
+
+  const getInsightSummaries = async (): Promise<any> => {
+    try {
+      const response = await fetch(`${dashboardApiUrl}/insights/summaries`)
+      return await response.json();
+  
+    } catch(e) {
+      setError(e);
+    }
+  }
+
+  const mapDataToUserInsights = (insightSummaries: InsightSummary[], userConversions: UserConversion[]): void => {
     let userInsights = insightSummaries.map(summary => {
       const conversions = userConversions.find(userConversion => userConversion.user_id === summary.user.id);
 
       return {...summary, conversions: conversions?.conversions ?? [] }
     });
+
     setUserInsights(userInsights);
   }
 
   const dashboardApiUrl = process.env.REACT_APP_DASHBOARD_API_URL;
   
   useEffect(() => {
-    fetch(`${dashboardApiUrl}/insights/summaries`)
-      .then((response) => {
-        return response.json();
-      })
-      .then(summaries => {
-        setInsightSummaries(summaries);
-      })
-      .catch((e) => {
-        setError(e);
-      }).finally(() => {
-        setIsLoading(false);
-      });
-  }, [dashboardApiUrl]);
-
-  useEffect(() => {
-    fetch(`${dashboardApiUrl}/insights/dailyconversions`)
-      .then((response) => {
-        return response.json();
-      })
-      .then(conversions => {
-        setUserConversions(conversions);
-        mapDataToUserInsights();
-      })
-      .catch((e) => {
-        setError(e);
-      }).finally(() => {
-        setIsLoading(false);
-      });
-  });
+    (async () => {
+      const insightSummaries = await getInsightSummaries();
+      const dailyConversions = await getDailyConversions();
+      
+      mapDataToUserInsights(insightSummaries, dailyConversions);
+      setIsLoading(false);
+    })();
+    
+  }, []);
 
   return [userInsights, isLoading, error];
 }
